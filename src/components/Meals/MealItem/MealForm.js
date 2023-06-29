@@ -1,19 +1,27 @@
-import React from 'react';
-import classes from './MealForm.module.css';
-import Input from '../../UI/Input/Input';
+import React from "react";
+import Input from "../../UI/Input/Input";
+import classes from "./MealForm.module.css";
 
 function MealForm(props) {
-
   const submitHandler = (event) => {
     event.preventDefault();
-
-  }
+  };
   return (
     <form className={classes.form} onSubmit={submitHandler}>
-      <Input></Input>
+      <Input
+        label="Amount"
+        input={{
+          id: "amount_" + props.id,
+          type: "number",
+          min: "1",
+          max: "5",
+          step: "1",
+          defaultValue: "1",
+        }}
+      />
       <button>+ Add</button>
     </form>
-  )
+  );
 }
 
-export default MealForm
+export default MealForm;
